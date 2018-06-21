@@ -1,7 +1,6 @@
 // @flow
 // Helper for cross platform yarn run script commands
 import buildCommands from './build'
-import electronComands from './electron'
 import fontCommands from './font'
 import fs from 'fs'
 import path from 'path'
@@ -12,7 +11,6 @@ const [, , command, ...rest] = process.argv
 const commands = {
   ...buildCommands,
   ...fontCommands,
-  ...electronComands,
   help: {
     code: () => {
       console.log(

@@ -87,7 +87,7 @@ function main() {
   // use the same version as the currently-installed electron
   console.log('Finding electron version')
   try {
-    packagerOpts.electronVersion = require('../package.json').devDependencies.electron
+    packagerOpts.electronVersion = 'unused string'
     console.log('Found electron version:', packagerOpts.electronVersion)
   } catch (err) {
     console.log("Couldn't parse yarn list to find electron:", err)
@@ -140,7 +140,7 @@ function startPack() {
           pack(os.platform(), shouldBuildAnArch)
             .then(postPack(os.platform(), shouldBuildAnArch))
             .catch(postPackError)
-        } else {
+        } else if (false) {
           // build for current platform only
           pack(os.platform(), os.arch())
             .then(postPack(os.platform(), os.arch()))
